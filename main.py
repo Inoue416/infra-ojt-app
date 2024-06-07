@@ -34,6 +34,7 @@ with gr.Blocks() as app:
         with gr.Column():
             gr.Markdown("# Add New Vec Data")
             gr.Markdown("## Please input file (.txt or .csv or .json)")
+            gr.Markdown("## The file name must be in single-byte alphabets only.")
             upload_result_message = ""
             isUse = True
             input_file = gr.File(file_types=[".txt", ".csv", ".json"])
