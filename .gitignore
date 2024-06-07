@@ -163,3 +163,4 @@ cython_debug/
 #.idea/
 
 gpt_sample.py
+sample_txt/
