@@ -32,13 +32,15 @@ with gr.Blocks() as app:
             for filename in input_filename_list:
                 gr.Markdown("- "+filename)
         with gr.Column():
-            gr.Markdown("# Add New Data")
+            gr.Markdown("# Add New Vec Data")
             gr.Markdown("## Please input file (.txt or .csv or .json)")
             upload_result_message = ""
+            isUse = True
             input_file = gr.File(file_types=[".txt", ".csv", ".json"])
-            input_file.upload(utils.uploadFile, inputs=input_file)
             upload_button = gr.Button("アップロード", variant="primary")
-            upload_button.click(utils.uploadFile, inputs=input_file)
+            upload_button.click(utils.uploadFile, inputs=input_file, outputs=None).then(
+                utils.fileFormClear, inputs=None, outputs=input_file
+            )
 
 
 app.queue()
